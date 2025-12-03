@@ -1,4 +1,4 @@
-# 🏛️ Website Gereja - Church Ma
+# 🏛️ Website Gereja - Church Management
 
 Website gereja modern dengan fitur lengkap menggunakan Next.js 14, React, TypeScript, dan Tailwind CSS.
 
