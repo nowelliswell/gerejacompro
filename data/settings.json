@@ -1,0 +1,33 @@
+{
+  "gereja": {
+    "nama": "Gereja Sample",
+    "alamat": "Jl. Sample No. 123",
+    "telepon": "021-12345678",
+    "email": "info@gereja.com",
+    "website": "https://gereja.com"
+  },
+  "socialMedia": {
+    "facebook": "",
+    "instagram": "",
+    "youtube": "",
+    "twitter": ""
+  },
+  "rekening": [
+    {
+      "bank": "Bank Sample",
+      "nomorRekening": "1234567890",
+      "atasNama": "Gereja Sample"
+    }
+  ],
+  "liveStreaming": {
+    "youtube": "",
+    "facebook": ""
+  },
+  "maps": {
+    "embedUrl": "",
+    "latitude": 0,
+    "longitude": 0
+  },
+  "updatedAt": "",
+  "updatedBy": ""
+}
