@@ -1,5 +1,5 @@
 import { format as dateFnsFormat } from 'date-fns'
-import { id } from 'date-fns/locale'
+import { id as localeId } from 'date-fns/locale/id'
 
 export function formatCurrency(amount: number): string {
   return new Intl.NumberFormat('id-ID', {
@@ -11,12 +11,12 @@ export function formatCurrency(amount: number): string {
 
 export function formatDate(date: string | Date, formatStr: string = 'dd MMMM yyyy'): string {
   const dateObj = typeof date === 'string' ? new Date(date) : date
-  return dateFnsFormat(dateObj, formatStr, { locale: id })
+  return dateFnsFormat(dateObj, formatStr, { locale: localeId })
 }
 
 export function formatDateTime(date: string | Date): string {
   const dateObj = typeof date === 'string' ? new Date(date) : date
-  return dateFnsFormat(dateObj, 'dd MMMM yyyy HH:mm', { locale: id })
+  return dateFnsFormat(dateObj, 'dd MMMM yyyy HH:mm', { locale: localeId })
 }
 
 export function formatRelativeTime(date: string | Date): string {

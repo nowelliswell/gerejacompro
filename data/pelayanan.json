@@ -1,3 +1,99 @@
 {
-  "pelayanan": []
+  "pelayanan": [
+    {
+      "id": "1",
+      "jenis": "doa",
+      "nama": "Alice Brown",
+      "email": "alice@example.com",
+      "telepon": "081234567892",
+      "detail": {
+        "pokok_doa": "Kesembuhan dari penyakit"
+      },
+      "status": "completed",
+      "createdAt": "2024-12-02T10:00:00Z",
+      "processedAt": "2025-12-06T12:13:15.417Z",
+      "processedBy": "admin@gereja.com",
+      "catatan": "Mantap"
+    },
+    {
+      "id": "2",
+      "jenis": "konseling",
+      "nama": "Charlie Davis",
+      "email": "charlie@example.com",
+      "telepon": "081234567893",
+      "detail": {
+        "topik": "Masalah keluarga"
+      },
+      "status": "pending",
+      "createdAt": "2024-12-01T10:00:00Z"
+    },
+    {
+      "id": "3",
+      "jenis": "baptisan",
+      "nama": "David Wilson",
+      "email": "david@example.com",
+      "telepon": "081234567894",
+      "detail": {
+        "nama_calon": "David Wilson",
+        "tanggal_lahir": "1995-05-15",
+        "tanggal_baptis": "2024-12-25"
+      },
+      "status": "in-progress",
+      "createdAt": "2024-11-28T10:00:00Z",
+      "processedAt": "2024-11-29T10:00:00Z",
+      "processedBy": "admin@gereja.com"
+    },
+    {
+      "id": "4",
+      "jenis": "baby",
+      "nama": "Emma Johnson",
+      "email": "emma@example.com",
+      "telepon": "081234567895",
+      "detail": {
+        "nama_bayi": "Sarah Johnson",
+        "tanggal_lahir": "2024-10-15",
+        "nama_orangtua": "Emma & Michael Johnson",
+        "tanggal_pemberkatan": "2024-12-20"
+      },
+      "status": "completed",
+      "catatan": "Pemberkatan bayi telah dilaksanakan dengan lancar",
+      "createdAt": "2024-11-20T10:00:00Z",
+      "processedAt": "2024-12-01T10:00:00Z",
+      "processedBy": "admin@gereja.com"
+    },
+    {
+      "id": "5",
+      "jenis": "nikah",
+      "nama": "Frank Miller",
+      "email": "frank@example.com",
+      "telepon": "081234567896",
+      "detail": {
+        "nama_suami": "Frank Miller",
+        "nama_istri": "Grace Anderson",
+        "tanggal_nikah": "2025-01-15",
+        "lokasi": "Gereja Utama"
+      },
+      "status": "rejected",
+      "createdAt": "2024-11-25T10:00:00Z",
+      "catatan": "belum cukup umur cuk",
+      "processedAt": "2025-12-06T12:13:43.676Z",
+      "processedBy": "admin@gereja.com"
+    },
+    {
+      "id": "6",
+      "jenis": "kunjungan",
+      "nama": "Henry Taylor",
+      "email": "henry@example.com",
+      "telepon": "081234567897",
+      "detail": {
+        "alamat": "Jl. Merdeka No. 123, Jakarta",
+        "tanggal_kunjungan": "2024-12-10",
+        "keperluan": "Kunjungan untuk jemaat yang sakit"
+      },
+      "status": "in-progress",
+      "createdAt": "2024-12-03T10:00:00Z",
+      "processedAt": "2024-12-04T10:00:00Z",
+      "processedBy": "admin@gereja.com"
+    }
+  ]
 }

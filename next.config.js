@@ -4,6 +4,7 @@ const nextConfig = {
   images: {
     domains: ['localhost'],
   },
+  transpilePackages: ['recharts'],
 }
 
 module.exports = nextConfig

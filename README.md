@@ -1,6 +1,44 @@
-# 🏛️ Website Gereja - Church Management
+# 🏛️ Website Gereja - Church Management System
 
-Website gereja modern dengan fitur lengkap menggunakan Next.js 14, React, TypeScript, dan Tailwind CSS.
+Website gereja modern dengan fitur lengkap menggunakan Next.js 15, React, TypeScript, dan Tailwind CSS. Dilengkapi dengan Admin Dashboard untuk manajemen konten dan data gereja.
+
+## 📊 Status Pengembangan
+
+### ✅ Fitur yang Sudah Ready (Production Ready)
+
+#### Frontend Website
+- ✅ Halaman Utama (Homepage)
+- ✅ Profil Gereja
+- ✅ Informasi Ibadah & Acara
+- ✅ Halaman Jemaat Baru
+- ✅ Komunitas & Pelayanan
+- ✅ Konten Rohani & Media
+- ✅ Formulir Pelayanan
+- ✅ Donasi & Persepuluhan Online
+
+#### Admin Dashboard
+- ✅ **Authentication System** - Login, logout, session management dengan NextAuth.js
+- ✅ **Dashboard Utama** - Statistik, grafik donasi, activity feed
+- ✅ **Manajemen Jemaat** - CRUD operations, search, filter, export to CSV/Excel
+- ✅ **Manajemen Pendaftar** - Approval workflow untuk jemaat baru
+- ✅ **Manajemen Donasi** - Verifikasi donasi, laporan, export, grafik per kategori
+- ✅ **Manajemen Permohonan Pelayanan** - Process, complete, reject service requests
+- ✅ **Notification System** - Real-time notifications untuk aktivitas penting
+- ✅ **Reusable Components** - DataTable, Modal, ConfirmDialog, SearchBar, dll
+
+### 🚧 Fitur dalam Tahap Development
+
+- 🚧 **Manajemen Khotbah** - Upload dan kelola arsip khotbah
+- 🚧 **Manajemen Artikel** - Buat dan kelola artikel rohani
+- 🚧 **Manajemen Galeri Media** - Upload dan kelola foto/video
+- 🚧 **Manajemen Jadwal & Acara** - Kelola jadwal ibadah dan acara
+- 🚧 **Manajemen Komunitas** - Kelola informasi komunitas dan anggota
+- 🚧 **Manajemen Pengumuman** - Buat dan kelola pengumuman
+- 🚧 **Manajemen Profil Gereja** - Edit visi/misi, sejarah, kepemimpinan
+- 🚧 **Pengaturan Website** - Konfigurasi kontak, social media, rekening bank
+- 🚧 **Laporan & Analitik** - Laporan lengkap dan analitik pertumbuhan
+- 🚧 **Manajemen User Admin** - Role-based access control
+- 🚧 **Backup & Restore** - Backup otomatis dan restore data
 
 ## Fitur Utama
 
@@ -58,36 +96,76 @@ Website gereja modern dengan fitur lengkap menggunakan Next.js 14, React, TypeSc
 - Upload bukti transfer
 - Informasi rekening
 
-## Teknologi
+## 🛠️ Teknologi
 
-- **Framework:** Next.js 14 (App Router)
+### Frontend
+- **Framework:** Next.js 15 (App Router)
 - **UI Library:** React 18
 - **Styling:** Tailwind CSS
 - **Language:** TypeScript
 - **Icons:** React Icons
 
-## Instalasi
+### Admin Dashboard
+- **Authentication:** NextAuth.js (JWT-based)
+- **Forms:** React Hook Form + Zod validation
+- **Charts:** Recharts
+- **Date Handling:** date-fns
+- **Export:** XLSX (Excel/CSV export)
+- **Testing:** Vitest + fast-check (Property-Based Testing)
+- **Data Storage:** JSON files (dapat di-upgrade ke database)
 
-1. Install dependencies:
+## 🚀 Instalasi
+
+1. Clone repository:
+```bash
+git clone <repository-url>
+cd web-gereja
+```
+
+2. Install dependencies:
 ```bash
 npm install
 ```
 
-2. Copy file environment:
+3. Copy file environment:
 ```bash
-copy .env.example .env
+copy .env.example .env.local
 ```
 
-3. Sesuaikan konfigurasi di file `.env`
+4. Sesuaikan konfigurasi di file `.env.local`:
+```env
+NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_SECRET=your-secret-key-here
+```
 
-4. Jalankan development server:
+5. Seed admin user (opsional):
+```bash
+npm run seed-admin
+```
+Default credentials: `admin@gereja.com` / `admin123`
+
+6. Jalankan development server:
 ```bash
 npm run dev
 ```
 
-5. Buka browser di `http://localhost:3000`
+7. Buka browser:
+- Website: `http://localhost:3000`
+- Admin Dashboard: `http://localhost:3000/admin`
 
-## Struktur Folder
+## 🧪 Testing
+
+Jalankan unit tests:
+```bash
+npm test
+```
+
+Jalankan tests dengan coverage:
+```bash
+npm run test:coverage
+```
+
+## 📁 Struktur Folder
 
 ```
 ├── app/                    # App Router pages
@@ -98,18 +176,40 @@ npm run dev
 │   ├── komunitas/         # Komunitas & pelayanan
 │   ├── media/             # Konten rohani
 │   ├── pelayanan/         # Formulir pelayanan
-│   └── donasi/            # Donasi online
+│   ├── donasi/            # Donasi online
+│   ├── admin/             # Admin dashboard pages
+│   │   ├── login/         # Login page
+│   │   ├── jemaat/        # Manajemen jemaat
+│   │   ├── pendaftar/     # Manajemen pendaftar
+│   │   ├── donasi/        # Manajemen donasi
+│   │   └── pelayanan/     # Manajemen pelayanan
+│   └── api/               # API routes
+│       ├── auth/          # Authentication APIs
+│       ├── jemaat/        # Jemaat APIs
+│       ├── pendaftar/     # Pendaftar APIs
+│       ├── donasi/        # Donasi APIs
+│       ├── pelayanan/     # Pelayanan APIs
+│       ├── dashboard/     # Dashboard APIs
+│       └── notifications/ # Notification APIs
 ├── components/            # React components
 │   ├── home/             # Homepage components
 │   ├── layout/           # Layout components
-│   ├── profil/           # Profil components
-│   ├── ibadah/           # Ibadah components
-│   ├── jemaat-baru/      # Jemaat baru components
-│   ├── komunitas/        # Komunitas components
-│   ├── media/            # Media components
-│   ├── pelayanan/        # Pelayanan components
-│   └── donasi/           # Donasi components
-└── public/               # Static assets
+│   ├── admin/            # Admin components
+│   │   ├── layout/       # Admin layout (sidebar, header)
+│   │   ├── common/       # Reusable components
+│   │   └── dashboard/    # Dashboard components
+│   └── ...               # Other feature components
+├── lib/                  # Utilities & services
+│   ├── auth/            # Authentication logic
+│   ├── types/           # TypeScript type definitions
+│   ├── utils/           # Utility functions
+│   └── services/        # Business logic services
+├── data/                # JSON data storage
+│   ├── jemaat.json
+│   ├── donasi.json
+│   ├── pelayanan.json
+│   └── ...
+└── public/              # Static assets
 ```
 
 ## Kustomisasi
@@ -147,14 +247,55 @@ npm run build
 npm start
 ```
 
-## Catatan Pengembangan
+## 🔐 Admin Dashboard
 
-- Semua formulir saat ini hanya menampilkan alert. Integrasikan dengan backend/API untuk menyimpan data.
-- Live streaming dan video memerlukan embed code dari YouTube/Facebook.
-- Google Maps memerlukan API key yang valid.
-- Payment gateway (Midtrans) memerlukan konfigurasi tambahan.
-- Email notification memerlukan konfigurasi SMTP.
+### Akses Admin
+URL: `http://localhost:3000/admin`
 
-## Lisensi
+Default credentials (setelah seed):
+- Email: `admin@gereja.com`
+- Password: `admin123`
+
+### Fitur Admin yang Tersedia
+1. **Dashboard** - Overview statistik dan aktivitas terbaru
+2. **Manajemen Jemaat** - CRUD, search, filter, export
+3. **Manajemen Pendaftar** - Approve/reject pendaftaran jemaat baru
+4. **Manajemen Donasi** - Verifikasi donasi, laporan, export
+5. **Manajemen Pelayanan** - Process service requests
+6. **Notifikasi** - Real-time notifications
+
+## 📝 Catatan Pengembangan
+
+### Sudah Terintegrasi
+- ✅ Authentication dengan NextAuth.js
+- ✅ API routes untuk CRUD operations
+- ✅ Data persistence dengan JSON files
+- ✅ Export ke CSV/Excel
+- ✅ Unit testing dengan Vitest
+- ✅ Form validation dengan Zod
+
+### Perlu Konfigurasi Tambahan
+- ⚠️ Live streaming - Memerlukan embed code dari YouTube/Facebook
+- ⚠️ Google Maps - Memerlukan API key yang valid
+- ⚠️ Payment gateway - Integrasi Midtrans untuk pembayaran online
+- ⚠️ Email notification - Konfigurasi SMTP untuk email otomatis
+- ⚠️ Database - Upgrade dari JSON files ke PostgreSQL/MySQL (opsional)
+
+### Roadmap
+- [ ] Implementasi fitur admin yang tersisa (khotbah, artikel, galeri, dll)
+- [ ] Property-based testing untuk semua modul
+- [ ] Integration testing
+- [ ] Email notifications
+- [ ] Payment gateway integration
+- [ ] Database migration
+- [ ] Role-based access control
+- [ ] Audit logging
+- [ ] Backup & restore automation
+
+## 🤝 Kontribusi
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📄 Lisensi
 
 MIT License

@@ -3,7 +3,16 @@ import { NextResponse } from 'next/server';
 
 export default withAuth(
   function middleware(req) {
+    const token = req.nextauth.token;
+
+    // If no token, withAuth will handle redirect
+    if (!token) {
+      return NextResponse.next();
+    }
+
     // Additional middleware logic can be added here
+    // For example: logging, analytics, role-based routing, etc.
+    
     return NextResponse.next();
   },
   {
@@ -14,9 +23,12 @@ export default withAuth(
           return false;
         }
 
-        // Check if user is active (if needed)
-        // Additional role-based checks can be added here
-        
+        // Verify token has required fields
+        if (!token.id || !token.role) {
+          return false;
+        }
+
+        // Token is valid and user is authenticated
         return true;
       },
     },

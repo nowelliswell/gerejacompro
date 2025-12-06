@@ -114,3 +114,54 @@ export default function Component() {
 ## Session Management
 
 Sessions automatically expire after 30 minutes of inactivity. Users will be redirected to the login page when their session expires.
+
+## Middleware Protection
+
+The authentication middleware automatically protects all admin routes except the login page.
+
+### How it works
+
+1. **Root Middleware** (`/middleware.ts`):
+   - Intercepts all requests to `/admin/*` routes (except `/admin/login`)
+   - Uses NextAuth's `withAuth` to check for valid session
+   - Redirects unauthenticated users to `/admin/login`
+   - Session expires after 30 minutes of inactivity
+
+2. **Auth Middleware Utilities** (`lib/auth/middleware.ts`):
+   - Provides helper functions for API routes and pages
+   - Supports role-based access control
+   - Returns standardized error responses
+
+### Protected Routes
+
+All routes matching `/admin/((?!login).*)` are automatically protected:
+- ✅ `/admin` - Dashboard (protected)
+- ✅ `/admin/jemaat` - Jemaat management (protected)
+- ✅ `/admin/donasi` - Donation management (protected)
+- ✅ `/admin/*` - All other admin routes (protected)
+- ❌ `/admin/login` - Login page (public)
+
+### Middleware Utilities
+
+The `lib/auth/middleware.ts` file provides additional utilities:
+
+```typescript
+import { getAuthenticatedUser, hasRole } from '@/lib/auth/middleware';
+
+// Get current authenticated user in API routes
+const user = await getAuthenticatedUser();
+// Returns: { id, name, email, username, role, avatar } or null
+
+// Check if user has specific role
+const isAdmin = await hasRole(['admin', 'super_admin']);
+// Returns: boolean
+```
+
+### Automatic Redirects
+
+When an unauthenticated user tries to access a protected route:
+1. They are redirected to `/admin/login`
+2. The original URL is saved as `callbackUrl` query parameter
+3. After successful login, they are redirected back to the original URL
+
+Example: Accessing `/admin/jemaat` without auth → Redirects to `/admin/login?callbackUrl=/admin/jemaat`

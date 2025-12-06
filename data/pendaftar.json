@@ -1,3 +1,30 @@
 {
-  "pendaftar": []
+  "pendaftar": [
+    {
+      "id": "1",
+      "nama": "David Lee",
+      "email": "david@example.com",
+      "telepon": "081234567894",
+      "alamat": "Jl. Baru No. 1",
+      "tanggalLahir": "1995-03-10",
+      "jenisKelamin": "Laki-laki",
+      "statusPernikahan": "Belum Menikah",
+      "status": "pending",
+      "createdAt": "2024-11-15T10:00:00Z"
+    },
+    {
+      "id": "2",
+      "nama": "Emma Wilson",
+      "email": "emma@example.com",
+      "telepon": "081234567895",
+      "alamat": "Jl. Baru No. 2",
+      "tanggalLahir": "1993-07-22",
+      "jenisKelamin": "Perempuan",
+      "statusPernikahan": "Menikah",
+      "status": "approved",
+      "createdAt": "2024-11-20T10:00:00Z",
+      "processedAt": "2025-12-06T12:22:08.899Z",
+      "processedBy": "admin"
+    }
+  ]
 }
